@@ -24,12 +24,9 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
         }
-
-
-
-
-
-
-
-          }
+         binding.btnadd.setOnClickListener{
+               array.add((array.size+1).toString())
+                adapter.notifyDataSetChanged()
+         }
+    }
 }

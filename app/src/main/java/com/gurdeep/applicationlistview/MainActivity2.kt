@@ -8,20 +8,19 @@ import android.widget.ListView
 import com.gurdeep.applicationlistview.databinding.ActivityMainBinding
 
 class MainActivity2 : AppCompatActivity() {
-    var listview: ListView?=null
     lateinit var adapter:ArrayAdapter<String>
     var array= arrayListOf<String>("1","2","3","4","5")
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main2)
-         listview=findViewById(R.id.listview)
+        setContentView(binding.root)
         adapter=ArrayAdapter(this,android.R.layout.simple_list_item_1,array)
-        listview?.adapter=adapter
-        binding.btn.setOnClickListener {
-            var intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        binding.listview?.adapter=adapter
+         binding.btn.setOnClickListener {
+             array.add("gurdeep singh").toString()
+             adapter.notifyDataSetChanged()
+
 
     }
 }}
